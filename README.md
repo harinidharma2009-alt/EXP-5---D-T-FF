@@ -50,13 +50,9 @@ endmodule
 
 ```
 ## Testbench Program
-
-
 // gedit tb5.v
-
-
- module tb5;
  
+module tb5;
     reg  clk, rst, D, T;
     wire Qd, Qt;
  
@@ -91,7 +87,8 @@ endmodule
         // ---- Apply asynchronous reset ----
         rst = 1; D = 0; T = 0;
         #7  rst = 0;
-         // ---- Apply test vectors on successive clock edges ----
+ 
+        // ---- Apply test vectors on successive clock edges ----
         @(negedge clk); D = 1; T = 1;
         @(negedge clk); D = 0; T = 1;
         @(negedge clk); D = 1; T = 0;
@@ -105,7 +102,7 @@ endmodule
  
         #20 $finish;
     end
-    endmodule
+endmodule
 
 ## Truth Table
 
@@ -165,7 +162,7 @@ Q(next) = T ⊕ Q   (T Flip-Flop)
 The design was compiled and simulated using Synopsys VCS, and the functionality was verified using DVE waveform analysis, matching the expected truth table.
 
 ## Output
-<img width="595" height="369" alt="image" src="https://github.com/user-attachments/assets/38290e4d-a813-4e0c-b891-68044c90623b" />
+<img width="1920" height="1080" alt="Screenshot (18)" src="https://github.com/user-attachments/assets/775da5d4-72b5-478d-9fa7-b33c9ee950a9" />
 
 ## Viva-Voce Questions
 
